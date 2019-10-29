@@ -61,6 +61,8 @@ dependencies:
     - psycopg2-binary==2.7.7
     - pycodestyle==2.4.0
     - pycparser==2.19
+    - pyexcel==0.5.14
+    - pyexcel-xlsx==0.5.7
     - pyflakes==2.0.0
     - pyjwt==1.7.1
     - python-dateutil==2.7.3
