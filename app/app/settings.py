@@ -23,6 +23,7 @@ BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 
 env = Env()
 env.read_env(path.join(BASE_DIR, '.env'), recurse=False)
+FORCE_SCRIPT_NAME = env('APP_NAME', '')
 
 
 # Quick-start development settings - unsuitable for production
