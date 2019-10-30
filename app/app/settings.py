@@ -251,7 +251,7 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/projects/'
 LOGOUT_REDIRECT_URL = '/'
 
-django_heroku.settings(locals(), test_runner=False)
+django_heroku.settings(locals(), test_runner=False, staticfiles=False)
 
 # Change 'default' database configuration with $DATABASE_URL.
 DATABASES['default'].update(dj_database_url.config(
