@@ -248,7 +248,7 @@ TEST_RUNNER = 'xmlrunner.extra.djangotestrunner.XMLTestRunner'
 TEST_OUTPUT_DIR = path.join(BASE_DIR, 'junitxml')
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/projects/'
+LOGIN_REDIRECT_URL = FORCE_SCRIPT_NAME + '/projects/'
 LOGOUT_REDIRECT_URL = '/'
 
 django_heroku.settings(locals(), test_runner=False, staticfiles=False)
