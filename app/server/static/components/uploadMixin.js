@@ -27,7 +27,7 @@ export default {
   },
 
   created() {
-    defaultHttpClient.get('/v1/features').then((response) => {
+    defaultHttpClient.get('../v1/features').then((response) => {
       this.canUploadFromCloud = response.data.cloud_upload;
     });
   },

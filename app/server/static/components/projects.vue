@@ -163,8 +163,8 @@ export default {
 
   created() {
     Promise.all([
-      defaultHttpClient.get('/v1/projects'),
-      defaultHttpClient.get('/v1/me'),
+      defaultHttpClient.get('../v1/projects'),
+      defaultHttpClient.get('../v1/me'),
     ]).then(([projects, me]) => {
       this.items = projects.data;
       this.username = me.data.username;
@@ -178,7 +178,7 @@ export default {
 
   methods: {
     deleteProject() {
-      defaultHttpClient.delete(`/v1/projects/${this.project.id}`).then(() => {
+      defaultHttpClient.delete(`../v1/projects/${this.project.id}`).then(() => {
         this.isDelete = false;
         const index = this.items.indexOf(this.project);
         this.items.splice(index, 1);
@@ -213,7 +213,7 @@ export default {
         guideline: 'Please write annotation guideline.',
         resourcetype: this.resourceType(),
       };
-      defaultHttpClient.post('/v1/projects', payload)
+      defaultHttpClient.post('../v1/projects', payload)
         .then((response) => {
           window.location = `/projects/${response.data.id}/docs/create`;
         })

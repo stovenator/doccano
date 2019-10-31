@@ -4,6 +4,7 @@ const process = require('process');
 const BundleTracker = require('webpack-bundle-tracker');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { ContextReplacementPlugin } = require('webpack');
+const { EnvironmentPlugin } = require('webpack');
 const hljsLanguages = require('./components/hljsLanguages');
 
 const devMode = process.env.DEBUG !== 'False';
@@ -12,6 +13,7 @@ const webpackHost = process.env.WEBPACK_HOST || '127.0.0.1';
 const webpackPort = process.env.WEBPACK_PORT ? parseInt(process.env.WEBPACK_PORT, 10) : 8080;
 const pollMillis = process.env.WEBPACK_POLL_MILLIS ? parseInt(process.env.WEBPACK_POLL_MILLIS, 10) : false;
 const noSourceMap = process.env.SOURCE_MAP === 'False';
+const prefix = process.env.APP_NAME || '';
 
 const pagesRoot = path.join(__dirname, 'pages');
 const entryPoints = {};
@@ -65,7 +67,8 @@ module.exports = {
             new RegExp(`^./(${hljsLanguages.join('|')})$`)
         ),
         new BundleTracker({ filename: './webpack-stats.json' }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new EnvironmentPlugin(['APP_NAME'])
     ],
     resolve: {
         extensions: ['.js', '.vue'],

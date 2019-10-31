@@ -112,7 +112,7 @@ TEMPLATES = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-FORCE_SCRIPT_NAME = '/annotater'
+FORCE_SCRIPT_NAME = env('APP_NAME', '')
 STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
 STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [

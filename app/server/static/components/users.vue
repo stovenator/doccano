@@ -121,8 +121,8 @@ export default {
   created() {
     Promise.all([
       HTTP.get('roles'),
-      defaultHttpClient.get('/v1/users'),
-      defaultHttpClient.get('/v1/roles'),
+      defaultHttpClient.get('../v1/users'),
+      defaultHttpClient.get('../v1/roles'),
     ]).then(([projectRoles, users, roles]) => {
       this.roleMappings = projectRoles.data;
       this.allUsers = users.data;
