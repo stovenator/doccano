@@ -39,6 +39,7 @@ module.exports = {
         quiet: false,
         headers: { 'Access-Control-Allow-Origin': '*' }
     },
+    watch: devMode ? true : false,
     watchOptions: {
         poll: pollMillis,
     },
@@ -68,7 +69,10 @@ module.exports = {
         ),
         new BundleTracker({ filename: './webpack-stats.json' }),
         new VueLoaderPlugin(),
-        new EnvironmentPlugin(['APP_NAME'])
+        new EnvironmentPlugin({
+            'APP_NAME': '',
+            'DEBUG': false
+        })
     ],
     resolve: {
         extensions: ['.js', '.vue'],

@@ -56,10 +56,10 @@ class LabelView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
         'bundle_name': 'label'
     }
 
-class ModelView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
+class NerModelView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
     template_name = 'admin.html'
     extra_context = {
-        'bundle_name': 'model'
+        'bundle_name': 'ner-model'
     }
 
 class StatsView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
