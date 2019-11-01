@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import IndexView
-from .views import ProjectView, DatasetView, DataUpload, LabelView, StatsView, GuidelineView, UsersView
+from .views import ProjectView, DatasetView, DataUpload, LabelView, ModelView, StatsView, GuidelineView, UsersView
 from .views import ProjectsView, DataDownload
 from .views import DemoTextClassification, DemoNamedEntityRecognition, DemoTranslation
 
@@ -19,6 +19,8 @@ urlpatterns = [
          DataUpload.as_view(), name='upload'),
     path('projects/<int:project_id>/labels/',
          LabelView.as_view(), name='label-management'),
+    path('projects/<int:project_id>/model/',
+         ModelView.as_view(), name='model'),
     path('projects/<int:project_id>/stats/',
          StatsView.as_view(), name='stats'),
     path('projects/<int:project_id>/guideline/',

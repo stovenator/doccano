@@ -56,6 +56,11 @@ class LabelView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
         'bundle_name': 'label'
     }
 
+class ModelView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
+    template_name = 'admin.html'
+    extra_context = {
+        'bundle_name': 'model'
+    }
 
 class StatsView(ProjectAdminMixin, LoginRequiredMixin, TemplateView):
     template_name = 'admin.html'
