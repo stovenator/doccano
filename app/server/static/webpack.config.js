@@ -7,7 +7,7 @@ const { ContextReplacementPlugin } = require('webpack');
 const { EnvironmentPlugin } = require('webpack');
 const hljsLanguages = require('./components/hljsLanguages');
 
-const devMode = process.env.DEBUG !== 'False';
+const devMode = !!process.env.DEBUG && process.env.DEBUG !== 'False';
 const hotReload = process.env.HOT_RELOAD === '1';
 const webpackHost = process.env.WEBPACK_HOST || '127.0.0.1';
 const webpackPort = process.env.WEBPACK_PORT ? parseInt(process.env.WEBPACK_PORT, 10) : 8080;

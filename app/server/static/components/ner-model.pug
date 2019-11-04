@@ -8,7 +8,6 @@ div.columns(v-cloak="")
         p.card-header-title Model Actions
 
       div.card-content
-        h2.subtitle Train Model
 
         div.control(style="margin-bottom: 1em;")
           block select-format-area
@@ -16,6 +15,6 @@ div.columns(v-cloak="")
         button.button.is-primary(
           style="margin-top: 1em;"
           type="submit"
-          v-on:click="download()"
+          v-on:click="train()"
           v-bind:class="{'is-loading': isLoading}"
         ) Train
