@@ -111,7 +111,7 @@
                           div.dataset-item__main.is-vertical
                             div.dataset-item__main-title
                               div.dataset-item__main-title-link.dataset-item__link
-                                a.has-text-black(v-bind:href="'/projects/' + project.id")
+                                a.has-text-black(v-bind:href="'../projects/' + project.id")
                                   | {{ project.name }}
 
                             div.dataset-item__main-subtitle {{ project.description }}
@@ -123,7 +123,7 @@
                           span.tag.is-normal {{ project.project_type }}
 
                         td.is-vertical(v-if="isProjectAdmin.get(project.id)")
-                          a(v-bind:href="'/projects/' + project.id + '/docs'") Edit
+                          a(v-bind:href="'../projects/' + project.id + '/docs'") Edit
 
                         td.is-vertical(v-if="isProjectAdmin.get(project.id)")
                           a.has-text-danger(v-on:click="setProject(project)") Delete
