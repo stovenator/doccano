@@ -178,7 +178,7 @@ export default {
 
   methods: {
     deleteProject() {
-      defaultHttpClient.delete(`../v1/projects/${this.project.id}`).then(() => {
+      defaultHttpClient.delete(`./v1/projects/${this.project.id}`).then(() => {
         this.isDelete = false;
         const index = this.items.indexOf(this.project);
         this.items.splice(index, 1);

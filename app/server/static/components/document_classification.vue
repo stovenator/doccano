@@ -78,7 +78,7 @@ export default {
         const payload = {
           label: label.id,
         };
-        await HTTP.post(`docs/${docId}/annotations`, payload).then((response) => {
+        await HTTP.post(`./docs/${docId}/annotations`, payload).then((response) => {
           this.annotations[this.pageNumber].push(response.data);
         });
       }

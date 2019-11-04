@@ -63,7 +63,7 @@ export default {
       const payload = {
         text: value,
       };
-      HTTP.post(`docs/${docId}/annotations`, payload).then((response) => {
+      HTTP.post(`./docs/${docId}/annotations`, payload).then((response) => {
         this.annotations[this.pageNumber].push(response.data);
       });
 
@@ -72,7 +72,7 @@ export default {
 
     removeTodo(todo) {
       const docId = this.docs[this.pageNumber].id;
-      HTTP.delete(`docs/${docId}/annotations/${todo.id}`).then(() => {
+      HTTP.delete(`./docs/${docId}/annotations/${todo.id}`).then(() => {
         const index = this.annotations[this.pageNumber].indexOf(todo);
         this.annotations[this.pageNumber].splice(index, 1);
       });
@@ -93,7 +93,7 @@ export default {
         this.removeTodo(todo);
       }
       const docId = this.docs[this.pageNumber].id;
-      HTTP.put(`docs/${docId}/annotations/${todo.id}`, todo).then((response) => {
+      HTTP.put(`../docs/${docId}/annotations/${todo.id}`, todo).then((response) => {
         console.log(response); // eslint-disable-line no-console
       });
     },
@@ -105,7 +105,7 @@ export default {
 
     async submit() {
       const state = this.getState();
-      this.url = `docs?q=${this.searchQuery}&seq2seq_annotations__isnull=${state}&offset=${this.offset}`;
+      this.url = `../docs?q=${this.searchQuery}&mjs=foo&seq2seq_annotations__isnull=${state}&offset=${this.offset}`;
       await this.search();
       this.pageNumber = 0;
     },

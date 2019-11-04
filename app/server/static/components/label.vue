@@ -208,7 +208,7 @@ export default {
   }),
 
   created() {
-    HTTP.get('labels').then((response) => {
+    HTTP.get('./labels').then((response) => {
       this.labels = response.data;
       this.sortLabels();
     });
@@ -255,7 +255,7 @@ export default {
       if (this.newLabel.prefix_key === '') {
         this.newLabel.prefix_key = null;
       }
-      HTTP.post('labels', this.newLabel)
+      HTTP.post('./labels', this.newLabel)
         .then((response) => {
           this.cancelCreate();
           this.labels.push(response.data);
@@ -270,7 +270,7 @@ export default {
 
     removeLabel(label) {
       const labelId = label.id;
-      HTTP.delete(`labels/${labelId}`).then(() => {
+      HTTP.delete(`./labels/${labelId}`).then(() => {
         const index = this.labels.indexOf(label);
         this.labels.splice(index, 1);
       });

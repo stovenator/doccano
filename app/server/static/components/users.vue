@@ -120,7 +120,7 @@ export default {
 
   created() {
     Promise.all([
-      HTTP.get('roles'),
+      HTTP.get('./roles'),
       defaultHttpClient.get('../v1/users'),
       defaultHttpClient.get('../v1/roles'),
     ]).then(([projectRoles, users, roles]) => {
@@ -141,7 +141,7 @@ export default {
     },
 
     addRoleMapping() {
-      HTTP.post('roles', { user: this.newRoleMapping.userid, role: this.newRoleMapping.roleid })
+      HTTP.post('./roles', { user: this.newRoleMapping.userid, role: this.newRoleMapping.roleid })
         .then((response) => {
           this.roleMappings.push(response.data);
           this.otherUsers = this.getOtherUsers();
@@ -159,7 +159,7 @@ export default {
     },
 
     removeRoleMapping(roleMappingId) {
-      HTTP.delete(`roles/${roleMappingId}`).then(() => {
+      HTTP.delete(`./roles/${roleMappingId}`).then(() => {
         this.roleMappings = this.roleMappings.filter(
           roleMapping => roleMapping.id !== roleMappingId,
         );

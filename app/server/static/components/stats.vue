@@ -105,7 +105,7 @@ export default {
   }),
 
   created() {
-    HTTP.get('statistics').then((response) => {
+    HTTP.get('./statistics').then((response) => {
       this.labelData = this.makeData(response.data.label, 'Label stats');
       this.userData = this.makeData(response.data.user, 'User stats');
       const complete = response.data.total - response.data.remaining;

@@ -195,7 +195,7 @@ export default {
 
     removeLabel(annotation) {
       const docId = this.docs[this.pageNumber].id;
-      HTTP.delete(`docs/${docId}/annotations/${annotation.id}`).then(() => {
+      HTTP.delete(`./docs/${docId}/annotations/${annotation.id}`).then(() => {
         const index = this.annotations[this.pageNumber].indexOf(annotation);
         this.annotations[this.pageNumber].splice(index, 1);
       });
@@ -221,7 +221,7 @@ export default {
       const document = this.docs[this.pageNumber];
       const approved = !this.documentAnnotationsAreApproved;
 
-      HTTP.post(`docs/${document.id}/approve-labels`, { approved }).then((response) => {
+      HTTP.post(`./docs/${document.id}/approve-labels`, { approved }).then((response) => {
         const documents = this.docs.slice();
         documents[this.pageNumber] = response.data;
         this.docs = documents;
@@ -236,7 +236,7 @@ export default {
 
     annotations() {
       // fetch progress info.
-      HTTP.get('statistics').then((response) => {
+      HTTP.get('./statistics').then((response) => {
         this.total = response.data.total;
         this.remaining = response.data.remaining;
       });
@@ -248,7 +248,7 @@ export default {
   },
 
   created() {
-    HTTP.get('labels').then((response) => {
+    HTTP.get('./labels').then((response) => {
       this.labels = response.data;
     });
     HTTP.get().then((response) => {

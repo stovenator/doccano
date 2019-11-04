@@ -66,7 +66,7 @@ export default {
       const formData = new FormData();
       formData.append('file', this.file);
       formData.append('format', this.format);
-      HTTP.post('docs/upload',
+      HTTP.post('../docs/upload',
         formData,
         {
           headers: {
